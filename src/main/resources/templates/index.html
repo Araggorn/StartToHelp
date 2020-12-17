@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../static/css/style.css" />
   </head>
   <body>
+  <div th:include="fragments/header :: header"></div>
     <header class="header--main-page">
+
       <nav class="container container--70">
         <ul class="nav--actions">
           <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
@@ -152,5 +154,6 @@
     </footer>
 
     <script src="../static/js/app.js"></script>
+  <div th:include="fragments/footer :: footer"></div>
   </body>
 </html>
