@@ -29,7 +29,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String homeAction(Model model) {
-        
+
         List<Institution> institutions = institutionService.findAllInstitutions();
         List<Institution> collectEven = institutions.stream()
                 .filter(inst -> inst.getId() % 2 == 0)
