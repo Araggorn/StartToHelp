@@ -9,6 +9,10 @@ import java.util.List;
 public interface InstitutionService {
     List<Institution> findAllInstitutions();
 
+    List<Institution> getInstitutionEven();
+
+    List<Institution> getInstitutionOdd();
+
     Institution findById(Long id);
 
     void add(Institution institution);

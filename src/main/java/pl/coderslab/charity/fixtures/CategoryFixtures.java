@@ -18,6 +18,7 @@ public class CategoryFixtures {
     public CategoryFixtures(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
+
     public void loadIntoDB() {
         for (Category category : categoryList){
             categoryService.add(category);

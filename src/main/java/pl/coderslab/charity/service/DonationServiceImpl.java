@@ -34,5 +34,15 @@ public class DonationServiceImpl implements DonationService {
         donationRepository.save(donation);
     }
 
+    @Override
+    public Object QtyOfDonation() {
+        return donationRepository.count();
+    }
+
+    @Override
+    public Object SumOfDonation() {
+        return donationRepository.SumOfDonation();
+    }
+
 }
 

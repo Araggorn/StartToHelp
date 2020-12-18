@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -44,9 +45,9 @@ public class Donation {
     private Integer quantity;
 
     @ManyToMany
-    private List<Category> categories;
+    private List<Category> categories = new ArrayList<>();
 
-    @ManyToOne @NotNull
+    @ManyToOne
     private Institution institution;
 
     private String city;
@@ -60,7 +61,7 @@ public class Donation {
 
     private String pickUpComment;
 
-    public Donation(Integer quantity, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
+    public Donation(Long id, Integer quantity, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
         this.id = id;
         this.quantity = quantity;
         this.city = city;

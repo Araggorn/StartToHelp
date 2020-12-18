@@ -24,7 +24,16 @@ public class InstitutionServiceImpl implements InstitutionService{
         return institutionRepository.findAll();
     }
 
+    @Override
+    public List<Institution> getInstitutionEven() {
+        return institutionRepository.getInstitutionEven();
+    }
 
+
+    @Override
+    public List<Institution> getInstitutionOdd() {
+        return institutionRepository.getInstitutionOdd();
+    }
     @Override
     public Institution findById(Long id) {
         return institutionRepository.getOne(id);

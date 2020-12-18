@@ -17,8 +17,8 @@ public class DonationFixtures {
     private InstitutionService institutionService;
     private CategoryService categoryService;
     private List<Donation> donationList = Arrays.asList(
-            new Donation(123,"Blablak","Wrocław","50-321", LocalDate.now(), LocalTime.now(),"test"),
-            new Donation(987,"Varsovia","Warszawa","00-311", LocalDate.now(), LocalTime.now(),"lalalallaa")
+            new Donation(null, 123,"Wrocław","50-321", LocalDate.now(), LocalTime.now(),"test"),
+            new Donation(null, 987,"Warszawa","00-311", LocalDate.now(), LocalTime.now(),"lalalallaa")
     );
     public DonationFixtures(DonationService donationService, InstitutionService institutionService, CategoryService categoryService) {
         this.donationService = donationService;

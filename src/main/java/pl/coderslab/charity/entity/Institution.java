@@ -29,5 +29,7 @@ public class Institution {
     private List<Donation> donationList = new ArrayList<>();
 
     public Institution(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 }

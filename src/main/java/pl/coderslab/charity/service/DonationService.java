@@ -14,5 +14,7 @@ public interface DonationService {
     void add(Donation donation);
 
 
+    Object QtyOfDonation();
 
+    Object SumOfDonation();
 }
