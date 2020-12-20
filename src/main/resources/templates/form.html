@@ -23,7 +23,7 @@
         </ul>
 
         <ul>
-          <li><a href="index.html" class="btn btn--without-border active">Start</a></li>
+          <li><a th:href="@{index}" class="btn btn--without-border active">Start</a></li>
           <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
           <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
           <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
@@ -82,7 +82,7 @@
       <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form action="form-confirmation.html" method="post">
+        <form th:action="@{/form-confirmation}" method="post" th:object="">
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
@@ -336,13 +336,13 @@
             ><img th:src="@{/static/images/icon-facebook.svg}"
           /></a>
           <a href="#" class="btn btn--small"
-            ><img src="../static/images/icon-instagram.svg"
+            ><img th:src="@{/static/images/icon-instagram.svg}"
           /></a>
         </div>
       </div>
     </footer>
 
-    <script src="../static/js/app.js"></script>
+    <script th:src="@{/static/js/app.js}"></script>
   <div th:include="fragments/footer :: footer"></div>
   </body>
 </html>
