@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
+    <title>Donate Form</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
@@ -86,62 +86,12 @@
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input
-                                type="checkbox"
-                                name="categories"
-                                value="badziongi"
-                        />
-                        <span class="checkbox"></span>
-                        <span class="description"
-                        >badziongi</span
-                        >
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input
-                                type="checkbox"
-                                name="categories"
-                                value="digi dongi"
-                        />
-                        <span class="checkbox"></span>
-                        <span class="description">digi dongi</span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="checkbox" name="categories" value="clothes"/>
-                        <span class="checkbox"></span>
-                        <span class="description">ubrania</span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="checkbox" name="categories" value="tools and other stuff"/>
-                        <span class="checkbox"></span>
-                        <span class="description">sprzęty i narzędzia</span>
-                    </label>
-                </div><div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="checkbox" name="categories" value="toys"/>
-                        <span class="checkbox"></span>
-                        <span class="description">zabawki</span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="checkbox" name="categories" value="other"/>
-                        <span class="checkbox"></span>
-                        <span class="description">inne</span>
-                    </label>
-                </div>
+                <label th:each="category : ${categories}">
+                    <div class="form-group form-group--checkbox">
+                    <input class="checkbox" type="checkbox" th:field="*{category.id}" th:value="${category.name}" name="categories" id="category"/>
+                        <div th:value="${category.name}" th:text="${category.name}" class="title" ></div>
+                    </div>
+                </label>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
