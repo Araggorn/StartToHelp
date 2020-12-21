@@ -88,8 +88,11 @@
                 <h3>Zaznacz co chcesz oddać:</h3>
                 <label th:each="category : ${categories}">
                     <div class="form-group form-group--checkbox">
-                    <input class="checkbox" type="checkbox" th:field="*{category.id}" th:value="${category.name}" name="categories" id="category"/>
-                        <div th:value="${category.name}" th:text="${category.name}" class="title" ></div>
+                    <input class="checkbox" type="checkbox" th:field="*{donation.categories}" th:value="${category.id}" name="categories" id="category"/>
+                        <span  class="checkbox"></span>
+                        <span  class="description">
+                        <div th:value="${category.id}" th:text="${category.name}" class="title" ></div>
+                        </span>
                     </div>
                 </label>
 
