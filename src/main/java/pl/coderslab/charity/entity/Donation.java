@@ -61,6 +61,10 @@ public class Donation {
 
     private String pickUpComment;
 
+    private String street;
+
+    private String phoneNumber;
+
     public Donation(Long id, Integer quantity, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment) {
         this.id = id;
         this.quantity = quantity;
