@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.charity.dto.CategoryDTO;
+import pl.coderslab.charity.dto.IntitutionDTO;
 import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
@@ -18,24 +20,21 @@ import java.util.List;
 public class FormController {
 
     private final DonationService donationService;
-    private final CategoryService categoryService;
-    private final InstitutionService institutionService;
 
     @Autowired
-    public FormController(DonationService donationService, CategoryService categoryService, InstitutionService institutionService) {
+    public FormController(DonationService donationService) {
         this.donationService = donationService;
-        this.categoryService = categoryService;
-        this.institutionService = institutionService;
+
     }
 
     @GetMapping("/form")
     public String getform(Model model) {
         model.addAttribute("donation", new Donation());
 
-        List<Institution> institutionsList = institutionService.findAllInstitutions();
+        List<IntitutionDTO> institutionsList = donationService.listOfInstitutions();
         model.addAttribute("institutions", institutionsList);
 
-        List<Category> categoryList = categoryService.findAllCategories();
+        List<CategoryDTO> categoryList = donationService.listOfCategories();
         model.addAttribute("categories", categoryList);
 
         return "form";

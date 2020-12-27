@@ -9,8 +9,8 @@ import lombok.*;
 @Builder
 public class IntitutionDTO {
 
-        private Long id;
-        private String name;
-        private String description;
-    }
+    private Long id;
+    private String name;
+    private String description;
+
 }
