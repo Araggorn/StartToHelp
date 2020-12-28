@@ -164,6 +164,22 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
+      $("#summary-street").text($("#street").val());
+      $("#summary-city").text($("#city").val());
+      $("#summary-zipCode").text($("#zipCode").val());
+      $("#summary-phone").text($("#phone").val());
+      $("#summary-date").text($("#date").val());
+      $("#summary-time").text($("#time").val());
+
+      $("#summary-quantity").text($("#quantity").val());
+
+      if ($("#comment").val() === '') {
+        $("#summary-comment").text("Brak komentarza").val();
+      } else {
+        $("#summary-comment").text($("#comment").val());
+      }
+
+
     }
 
   }
