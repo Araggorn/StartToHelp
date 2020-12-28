@@ -40,8 +40,8 @@ public class FormController {
         return "form";
     }
 
-    @PostMapping("/form")
-    public String postform(Donation donation) {
+    @PostMapping("form")
+    public String donationAdd(Donation donation) {
         donationService.add(donation);
         return "redirect:/form-confirmation";
     }

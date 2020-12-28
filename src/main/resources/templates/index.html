@@ -100,19 +100,22 @@
       <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
         Możesz sprawdzić czym się zajmują.</p>
 
-      <ul class="help--slides-items">
+      <ul class="help--slides-items" style="float: left;text-align: left">
         <li>
           <div th:each="institutionsOdd: ${institutionsOdd}" class="col">
             <div  th:text="${institutionsOdd.name}" class="title"></div>
             <div  th:text="${institutionsOdd.description}" class="subtitle"></div>
           </div>
         </li>
+      </ul>
+      <ul class="help--slides-items" style="float: right;text-align: right;">
         <li>
           <div th:each="institutionsEven: ${institutionsEven}" class="col">
             <div  th:text="${institutionsEven.name}" class="title"></div>
             <div  th:text="${institutionsEven.description}" class="subtitle"></div>
           </div>
         </li>
+      </ul>
 
 
       </ul>

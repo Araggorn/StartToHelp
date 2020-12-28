@@ -23,7 +23,7 @@
         </ul>
 
         <ul>
-            <li><a th:href="@{index}" class="btn btn--without-border active">Start</a></li>
+            <li><a th:href="@{/}" class="btn btn--without-border active">Start</a></li>
             <li><a href="index.html#steps" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="index.html#about-us" class="btn btn--without-border">O nas</a></li>
             <li><a href="index.html#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
@@ -87,7 +87,9 @@
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
 
-                <div class="form-group form-group--checkbox" th:each="category : ${categories}">
+                <div th:id="'category-' + ${category.id}"
+                     class="form-group form-group--checkbox" th:each="category : ${categories}">
+
                     <label>
                         <input
                                 type="checkbox"
@@ -129,9 +131,10 @@
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
                 <
-                <div class="form-group form-group--checkbox" th:each="institution : ${institutions}">
+                <div th:id="'institution-' + ${institution.id}"
+                     class="form-group form-group--checkbox" th:each="institution : ${institutions}">
                     <label>
-                        <input type="radio" name="institution" th:value="${institution.id}" />
+                        <input type="radio" name="institution" th:value="${institution.id}"/>
                         <span class="checkbox radio"></span>
                         <span class="description">
                   <div class="title" th:text="'Fundacja: ' + ${institution.name}"></div>
@@ -182,8 +185,9 @@
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label>Numer telefonu <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" th:field="*{donation.phoneNumber}" id="phone"/>
-                               <br> <small>Format: 888-889-890</small>
+                            <label>Numer telefonu <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                                                         th:field="*{donation.phoneNumber}" id="phone"/>
+                                <br> <small>Format: 888-889-890</small>
                             </label>
                         </div>
                     </div>
@@ -223,25 +227,27 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text" id="summary-quantity"></span>
-                                <span> worki </span> <span class="summary--text" id="categories-event"></span>
-                                <span> dla dzieci </span
-                                >
+                                <span style="padding: 5px" class="summary--text" id="summary-quantity"></span>
+                                <span> worki </span> <strong><span style="padding: 5px;" class="summary--text"
+                                                                   id="summary-category"></span>
+                            </strong><span> dla potrzebujących dzieci!</span
+                            >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span>Dla fundacji: </span>
-                                <span style="display:inline-block;" class="summary--text" id="institution-event"></span>
+                                <span>Dary otrzyma  </span>
+                                <span style="display:inline-block; padding-left: 5px" class="summary--text"
+                                      id="summary-institution"></span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="form-section form-section--columns">
                         <div class="form-section--column">
-                            <h4 >Adres odbioru:</h4>
+                            <h4>Adres odbioru:</h4>
                             <ul>
-                                <li id="summary-street"> </li>
+                                <li id="summary-street"></li>
                                 <li id="summary-city"></li>
                                 <li id="summary-zipCode"></li>
                                 <li id="summary-phone"></li>
@@ -249,7 +255,7 @@
                         </div>
 
                         <div class="form-section--column">
-                            <h4 >Termin odbioru:</h4>
+                            <h4>Termin odbioru:</h4>
                             <ul>
                                 <li id="summary-date"></li>
                                 <li id="summary-time"></li>
