@@ -180,16 +180,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 $("#summary-comment").text($("#comment").val());
             }
 
-            var categoriesJQuery = $("div[id^=category-]")
-                .filter(function () {
-                    const checkbox = $(this).find("input");
-                    return $(checkbox).is(":checked");
-                })
-                .map(function () {
-                    const label = $(this).find(".description");
-                    return $(label).text();
-                })
-                .get()
+            var categoriesJQuery = $("div[id^=category-] input:checked ~ .description").text().get();
+                // .filter(function () {
+                //     const checkbox = $(this).find("input");
+                //     return $(checkbox).is(":checked");
+                // })
+                // .map(function () {
+                //     const label = $(this).find(".description");
+                //     return $(label).text();
+                // })
+                // .get()
 
             $('#summary-category').text(categoriesJQuery);
 
