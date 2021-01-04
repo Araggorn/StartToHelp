@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
-public class UsersRolesServiceImpl implements UsersRolesService{
+public class UsersRolesServiceImpl implements UsersRolesService {
     private final UsersRolesRepository usersRolesRepository;
 
     public UsersRolesServiceImpl(UsersRolesRepository usersRolesRepository) {
@@ -41,21 +41,31 @@ public class UsersRolesServiceImpl implements UsersRolesService{
 
     @Override
     public void delete(Long id) {
-        UsersRoles usersRoles = usersRolesRepository.getOne(id);
-        usersRoles.setActive(false);
-        usersRoles.setLast_update(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        usersRoles.setChangeBy(SecurityUtils.usernameForActivations());
-        usersRolesRepository.save(usersRoles);
+
     }
 
     @Override
     public void activate(Long id) {
-        UsersRoles usersRoles = usersRolesRepository.getOne(id);
-        usersRoles.setActive(true);
-        usersRoles.setLast_update(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        usersRoles.setChangeBy(SecurityUtils.usernameForActivations());
-        usersRolesRepository.save(usersRoles);
+
     }
+
+//    @Override
+//    public void delete(Long id) {
+//        UsersRoles usersRoles = usersRolesRepository.getOne(id);
+//        usersRoles.setActive(false);
+//        usersRoles.setLast_update(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+//        usersRoles.setChangeBy(SecurityUtils.usernameForActivations());
+//        usersRolesRepository.save(usersRoles);
+//    }
+//
+//    @Override
+//    public void activate(Long id) {
+//        UsersRoles usersRoles = usersRolesRepository.getOne(id);
+//        usersRoles.setActive(true);
+//        usersRoles.setLast_update(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+//        usersRoles.setChangeBy(SecurityUtils.usernameForActivations());
+//        usersRolesRepository.save(usersRoles);
+
 
     @Override
     public List<Long> getUsersRolesId() {

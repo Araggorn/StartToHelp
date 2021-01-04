@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,6 +15,7 @@ import pl.coderslab.charity.entity.SingleUser;
 import pl.coderslab.charity.repository.SingleUserRepository;
 
 import java.util.Collection;
+import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -34,18 +36,12 @@ public class CustomerUserDetailsService implements UserDetailsService {
         return new User(
                 users.getEmail()
                 , users.getPassword()
-                , getAuthoritites(users));
-
-//                ,Collections.singletonList(new SimpleGrantedAuthority("USER")));
+                , Collections.singletonList(new SimpleGrantedAuthority(users.getUsersRoles().getRole())));
 
 
 //        users.getUsername()
 //                , users.getPassword()
 //                , Collections.singletonList(new SimpleGrantedAuthority("USER")));
     }
-    private static Collection<? extends GrantedAuthority> getAuthoritites(SingleUser users) {
-        String[] userRoles = users.getUsersRoles().getUsersList().stream().map((usersRoles) -> users.getUsersRoles().getRole()).toArray(String[]::new);
-        Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userRoles);
-        return authorities;
-    }
+
 }
