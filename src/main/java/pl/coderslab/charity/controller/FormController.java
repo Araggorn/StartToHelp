@@ -46,7 +46,7 @@ public class FormController {
         return "redirect:/form-confirmation";
     }
 
-    @GetMapping("/form-confirmation")
+    @GetMapping("form-confirmation")
     public String donationConfirmationForm() {
         return "form-confirmation";
     }

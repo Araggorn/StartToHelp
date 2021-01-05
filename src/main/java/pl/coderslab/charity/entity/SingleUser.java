@@ -39,8 +39,8 @@ public class SingleUser {
         @ManyToOne
         private UsersRoles usersRoles;
 
-        @OneToMany(mappedBy="users")
-        private List<Donation> donationList = new ArrayList<>();
+//        @OneToMany(mappedBy="users")
+//        private List<Donation> donationList = new ArrayList<>();
 
 
         public SingleUser(Long id, String username, String password, String created, String last_update, UsersRoles usersRoles, String email, boolean active, String changeBy,String lastName,String activateToken) {

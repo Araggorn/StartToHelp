@@ -60,7 +60,7 @@ public class SingleUserServiceImpl implements SingleUserService {
 
     @Override
     public List<SingleUser> getUsers() {
-        return usersRepository.getUsers();
+        return usersRepository.findAll();
     }
 
 

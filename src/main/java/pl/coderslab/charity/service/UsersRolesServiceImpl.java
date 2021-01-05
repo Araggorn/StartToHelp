@@ -31,8 +31,13 @@ public class UsersRolesServiceImpl implements UsersRolesService {
 
     @Override
     public List<UsersRoles> getDeactivatedUsersRoles() {
-        return usersRolesRepository.getDeactivatedUsersRoles();
+        return null;
     }
+
+//    @Override
+//    public List<UsersRoles> getDeactivatedUsersRoles() {
+//        return usersRolesRepository.getDeactivatedUsersRoles();
+//    }
 
     @Override
     public UsersRoles findById(Long id) {
