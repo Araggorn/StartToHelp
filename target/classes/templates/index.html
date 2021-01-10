@@ -13,12 +13,12 @@
 
       <nav class="container container--70">
         <ul class="nav--actions">
-          <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-          <li><a href="#" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+          <li><a th:href="@{/login}" class="btn btn--small btn--without-border">Zaloguj</a></li>
+          <li><a th:href="@{/register}" class="btn btn--small btn--highlighted">Załóż konto</a></li>
         </ul>
 
         <ul>
-          <li><a href="" class="btn btn--without-border active">Start</a></li>
+          <li><a th:href="@{/}" class="btn btn--without-border active">Start</a></li>
           <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
           <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>
           <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
@@ -37,18 +37,18 @@
       </div>
     </header>
 
-    <section id="stats" class="stats">
-      <div class="container container--85">
+    <section id="stats" class="stats" >
+      <div class="container container--85" style="display: inline;">
         <div class="stats--item">
           <em th:text="${sumOfDonation}"></em>
           <h3>Oddanych worków</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum tempora!</p>
+          <p>Dziękujemy!</p>
         </div>
 
         <div class="stats--item">
           <em th:text="${qtyOfDonation}"></em>
           <h3>Przekazanych darów</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas quam.</p>
+          <p>Jesteście wspaniali!</p>
         </div>
 
       </div>
@@ -80,13 +80,13 @@
         </div>
       </div>
 
-      <a href="#" class="btn btn--large">Załóż konto</a>
+      <a th:href="@{/register}" class="btn btn--large">Załóż konto</a>
     </section>
 
     <section id="about-us" class="about-us">
       <div class="about-us--text">
         <h2>O nas</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero optio esse quisquam illo omnis.</p>
+        <p>Jesteśmy pomocnikamami aniołów, które przekazują dary dla potrzebujących</p>
         <img th:src="@{/images/signature.svg}" class="about-us--text-signature" alt="Signature" />
       </div>
       <div class="about-us--image"><img th:src="@{/images/about-us.jpg}" alt="People in circle" /></div>
@@ -99,8 +99,21 @@
     <div class="help--slides active" data-id="1">
       <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
         Możesz sprawdzić czym się zajmują.</p>
-
-      <ul class="help--slides-items" style="float: left;text-align: left">
+      <ul class="help--slides-items">
+<!--        <li th:each="institutionOdd : ${institutionsOdd}">-->
+<!--          <div th:class="${institutionOdd.name != null}? col : col2">-->
+<!--            <div th:text="${institutionOdd.name}" class="title"></div>-->
+<!--            <div th:text="${institutionOdd.description}" class="subtitle"></div>-->
+<!--          </div>-->
+<!--        <span th:each="institutionEven : ${institutionsEven}">-->
+<!--          <div th:if="${institutionEven.name != null}" class="col">-->
+<!--            <div th:text="${institutionEven.name}" class="title"></div>-->
+<!--            <div th:text="${institutionEven.description}" class="subtitle"></div>-->
+<!--          </div>-->
+<!--        </span>-->
+<!--        </li>-->
+      </ul>
+      <ul class="help--slides-items" style="padding: 10px">
         <li>
           <div th:each="institutionsOdd: ${institutionsOdd}" class="col">
             <div  th:text="${institutionsOdd.name}" class="title"></div>
@@ -108,7 +121,7 @@
           </div>
         </li>
       </ul>
-      <ul class="help--slides-items" style="float: right;text-align: right;">
+      <ul class="help--slides-items" style="padding: 10px;">
         <li>
           <div th:each="institutionsEven: ${institutionsEven}" class="col">
             <div  th:text="${institutionsEven.name}" class="title"></div>

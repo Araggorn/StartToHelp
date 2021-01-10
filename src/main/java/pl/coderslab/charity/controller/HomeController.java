@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.app.SecurityUtils;
 import pl.coderslab.charity.entity.Institution;
+import pl.coderslab.charity.entity.SingleUser;
 import pl.coderslab.charity.service.CategoryService;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
+import pl.coderslab.charity.service.SingleUserService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,13 +22,17 @@ public class HomeController {
     private final InstitutionService institutionService;
     private final DonationService donationService;
     private final CategoryService categoryService;
+    private final SingleUserService userService;
 
     @Autowired
-    public HomeController(InstitutionService institutionService, DonationService donationService, CategoryService categoryService) {
+
+    public HomeController(InstitutionService institutionService, DonationService donationService, CategoryService categoryService, SingleUserService userService) {
         this.institutionService = institutionService;
         this.donationService = donationService;
         this.categoryService = categoryService;
+        this.userService = userService;
     }
+
 
     @RequestMapping("/")
     public String homeAction(Model model) {
@@ -44,6 +51,10 @@ public class HomeController {
 
         model.addAttribute("institutionsEven", collectEven);
         model.addAttribute("institutionsOdd", collectOdd);
+        SingleUser user = userService.getByEmail(SecurityUtils.username());
+        if(user != null) {
+            model.addAttribute("userEmail", user.getEmail());
+        }
         return "index";
     }
 }

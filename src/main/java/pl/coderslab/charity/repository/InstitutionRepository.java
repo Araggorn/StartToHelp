@@ -10,9 +10,5 @@ import java.util.List;
 @Repository
 public interface InstitutionRepository extends JpaRepository <Institution, Long> {
 
-    @Query("Select i from Institution i where i.id % 2 = 0")
-    List<Institution> getInstitutionEven();
 
-    @Query("Select i from Institution i where i.id % 2 != 0")
-    List<Institution> getInstitutionOdd();
 }
