@@ -5,9 +5,7 @@
     <title>Header</title>
 </head>
 <body>
-<div th:fragment="header">
-<header class="header--form-page">
-
+<header th:fragment="header">
         <ul>
             <li><a th:href="@{/}" class="btn btn--without-border active">Start</a></li>
             <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
@@ -16,8 +14,6 @@
             <li><a th:href="@{/form}" class="btn btn--without-border">Przekaż dary</a></li>
             <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
-    </nav>
-
 </header>
 </div>
 </body>
