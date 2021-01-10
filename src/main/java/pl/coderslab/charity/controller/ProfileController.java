@@ -29,6 +29,7 @@ public class ProfileController {
         SingleUser user = singleUserService.getByEmail(SecurityUtils.username());
         model.addAttribute("user",user);
         model.addAttribute("username",user.getUsername());
+        model.addAttribute("userEmail", user.getEmail());
         return "profile";
     }
 
