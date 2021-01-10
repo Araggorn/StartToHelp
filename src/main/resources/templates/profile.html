@@ -13,7 +13,7 @@
     <nav class="container container--70">
         <ul class="nav--actions">
             <li class="logged-user">
-                Witaj <span th:text="${userFirstName}"></span>
+                Witaj <span th:text="${userEmail}"></span>
                 <ul class="dropdown">
                     <li><a th:href="@{/myprofile}">Profil</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
@@ -27,7 +27,7 @@
 
 <section class="login-page">
     <h2 style="font-weight:normal">Witaj <span th:text="${username}"></span>, poniżej możesz sprawdzić oraz zmienić swoje dane użytkownika.</h2>
-    <form th:object="${user}" method="post" th:action="@{/my-profile}">
+    <form th:object="${user}" method="post" th:action="@{/profile}">
         <div class="form-group">
             <input th:field="*{username}" type="text" name="username" placeholder="Nazwa użytkownika" id="username"/>
             <span id='adminError'></span>
@@ -35,14 +35,14 @@
         <div class="form-group">
             <input th:field="*{email}" type="email" id="email" name="email" placeholder="Email" />
         </div>
-        <div class="form-group">
-            <input th:field="*{firstName}" type="text" id="firstName" name="firstName" placeholder="Imię" />
-            <span id='firstNameError'></span>
-        </div>
-        <div class="form-group">
-            <input th:field="*{lastName}" type="text" id="lastName" name="lastName" placeholder="Nazwisko" />
-            <span id='lastNameError'></span>
-        </div>
+<!--        <div class="form-group">-->
+<!--            <input th:field="*{firstName}" type="text" id="firstName" name="firstName" placeholder="Imię" />-->
+<!--            <span id='firstNameError'></span>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <input th:field="*{lastName}" type="text" id="lastName" name="lastName" placeholder="Nazwisko" />-->
+<!--            <span id='lastNameError'></span>-->
+<!--        </div>-->
         <div class="form-group">
             <input th:field="*{password}" type="password" id="password" name="password" placeholder="Hasło" />
         </div>
@@ -74,27 +74,6 @@
             $('#passwordError').html('Hasła różnią się od siebie, proszę popraw').css('color', 'red');
     });
 
-    $('#firstName').on('keyup', function() {
-        if($('#firstName').val().includes(0) || $('#firstName').val().includes(1) ||
-            $('#firstName').val().includes(2) || $('#firstName').val().includes(3) ||
-            $('#firstName').val().includes(4) || $('#firstName').val().includes(5) ||
-            $('#firstName').val().includes(6) || $('#firstName').val().includes(7) ||
-            $('#firstName').val().includes(8) || $('#firstName').val().includes(9)) {
-            $('#firstNameError').html('Imię powinno się składać wyłącznie z liter').css('color', 'red');
-        } else
-            $('#firstNameError').html('Imię użytkownika dozwolone').css('color', 'green');
-    })
-
-    $('#lastName').on('keyup', function() {
-        if($('#lastName').val().includes(0) || $('#lastName').val().includes(1) ||
-            $('#lastName').val().includes(2) || $('#lastName').val().includes(3) ||
-            $('#lastName').val().includes(4) || $('#lastName').val().includes(5) ||
-            $('#lastName').val().includes(6) || $('#lastName').val().includes(7) ||
-            $('#lastName').val().includes(8) || $('#lastName').val().includes(9)) {
-            $('#lastNameError').html('Nazwisko powinno się składać wyłącznie z liter').css('color', 'red');
-        } else
-            $('#lastNameError').html('Nazwisko użytkownika dozwolone').css('color', 'green');
-    })
 
     function validate() {
         var pass1 = document.getElementById("password").value;
