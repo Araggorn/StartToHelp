@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src ="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+
+</head>
+<header>
+    <nav class="container container--70">
+        <span th:include="fragments/log-or-not :: log-or-not"></span>
+
+        <span th:include="fragments/header :: header"></span>
+        <span sec:authorize="hasRole('ROLE_ADMIN')">
+        <br/><br/><br/><br/>
+        <div th:text="#{app.logged.a3}" style="font-weight: bold;font-size: 20px">Panel Admina</div>
+        <span th:include="fragments/adminNavigation :: adminNavigation"></span>
+        </span>
+    </nav>
+</header>
+
+
+<footer>
+    <span th:include="fragments/footer :: footer"></span>
+</footer>
+</body>
+</html>

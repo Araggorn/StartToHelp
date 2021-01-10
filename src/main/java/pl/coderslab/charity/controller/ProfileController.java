@@ -1,11 +1,11 @@
 package pl.coderslab.charity.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.app.SecurityUtils;
 import pl.coderslab.charity.entity.SingleUser;
 import pl.coderslab.charity.service.SingleUserService;
@@ -16,9 +16,10 @@ import java.time.LocalDateTime;
 @Controller
 public class ProfileController {
 
-    SingleUserService singleUserService;
-    UsersRolesService usersRolesService;
+   private final SingleUserService singleUserService;
+   private final UsersRolesService usersRolesService;
 
+    @Autowired
     public ProfileController(SingleUserService singleUserService, UsersRolesService usersRolesService) {
         this.singleUserService = singleUserService;
         this.usersRolesService = usersRolesService;
@@ -39,7 +40,7 @@ public class ProfileController {
         loggedUser.setUsername(singleUser.getUsername());
         loggedUser.setLast_update(LocalDateTime.now().toString());
         singleUserService.add(loggedUser);
-        return "profile";
+        return "redirect:/login";
     }
 
 }

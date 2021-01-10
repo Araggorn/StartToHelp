@@ -9,7 +9,9 @@ public class InstitutionFixtures {
     private InstitutionService institutionService;
     private List<Institution> institutionList = Arrays.asList(
             new Institution("Oboje"," Pomoc dla osób nie posiadających miejsca zamieszkania"),
-            new Institution("My i Wy", "Przeciwdziałanie Wam a dawanie Nam")
+            new Institution("My i Wy", "Przeciwdziałanie Wam a dawanie Nam"),
+            new Institution("Dla Dzieci", "Pomoc dla potrzebujących dzieci"),
+            new Institution("DKMS", "Organizacja pomocy dla osób z chorobami krwi")
     );
     public InstitutionFixtures(InstitutionService institutionService) {
         this.institutionService = institutionService;
