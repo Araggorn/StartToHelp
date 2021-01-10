@@ -11,12 +11,9 @@ public interface SingleUserRepository extends JpaRepository <SingleUser, Long>
 //
 //    boolean existsByUsername(String username);
 //    SingleUser getByUsername(String username);
-//
+
     boolean existsByEmail(String email);
-//
-    @Query("Select u from SingleUser u where u.email = ?1")
-    SingleUser getByEmail(String email);
-//
+
     @Query("Select distinct u from SingleUser u where u.id =?1")
   List<SingleUser> getUser(Long id);
 //
@@ -27,6 +24,10 @@ public interface SingleUserRepository extends JpaRepository <SingleUser, Long>
     Long FindUserIdByEmail(String email);
 
     SingleUser getSingleUserById(Long id);
+    SingleUser getSingleUserByEmail(String email);
+
+    @Query("Select u from SingleUser u where u.email = ?1")
+    SingleUser getByEmail(String email);
 //
 //    @Query(value="Select active from users where id = ?1",nativeQuery = true)
 //    boolean readyToDelete(Long id);

@@ -72,18 +72,23 @@ public class SingleUserServiceImpl implements SingleUserService {
 
 
     @Override
-    public String FindUsernameByEmail(String email) {
+    public String findUsernameByEmail(String email) {
         return usersRepository.FindUsernameByEmail(email);
     }
 
     @Override
-    public Long FindUserIdByEmail(String email) {
+    public Long findUserIdByEmail(String email) {
         return usersRepository.FindUserIdByEmail(email);
     }
 
     @Override
     public SingleUser getUsersById(Long id) {
         return usersRepository.getSingleUserById(id);
+    }
+
+    @Override
+    public SingleUser getByEmail(String email) {
+        return usersRepository.getByEmail(email);
     }
 
 

@@ -8,23 +8,25 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" />
   </head>
   <body>
-<!--  <div th:include="fragments/header :: header"></div>-->
+
     <header class="header--main-page">
 
       <nav class="container container--70">
-        <ul class="nav--actions">
-          <li><a th:href="@{/login}" class="btn btn--small btn--without-border">Zaloguj</a></li>
-          <li><a th:href="@{/register}" class="btn btn--small btn--highlighted">Załóż konto</a></li>
-        </ul>
+<!--        <ul class="nav&#45;&#45;actions">-->
+          <div th:include="fragments/log-or-not :: log-or-not"></div>
+          <div th:include="fragments/header :: header"></div>
+<!--          <li><a th:href="@{/login}" class="btn btn&#45;&#45;small btn&#45;&#45;without-border">Zaloguj</a></li>-->
+<!--          <li><a th:href="@{/register}" class="btn btn&#45;&#45;small btn&#45;&#45;highlighted">Załóż konto</a></li>-->
+<!--        </ul>-->
 
-        <ul>
-          <li><a href="" class="btn btn--without-border active">Start</a></li>
-          <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
-          <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>
-          <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-          <li><a th:href="@{/form}" class="btn btn--without-border">Przekaż dary</a></li>
-          <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>
-        </ul>
+<!--        <ul>-->
+<!--          <li><a href="" class="btn btn&#45;&#45;without-border active">Start</a></li>-->
+<!--          <li><a href="#steps" class="btn btn&#45;&#45;without-border">O co chodzi?</a></li>-->
+<!--          <li><a href="#about-us" class="btn btn&#45;&#45;without-border">O nas</a></li>-->
+<!--          <li><a href="#help" class="btn btn&#45;&#45;without-border">Fundacje i organizacje</a></li>-->
+<!--          <li><a th:href="@{/form}" class="btn btn&#45;&#45;without-border">Przekaż dary</a></li>-->
+<!--          <li><a href="#contact" class="btn btn&#45;&#45;without-border">Kontakt</a></li>-->
+<!--        </ul>-->
       </nav>
 
       <div class="slogan container container--90">
@@ -42,13 +44,13 @@
         <div class="stats--item">
           <em th:text="${sumOfDonation}"></em>
           <h3>Oddanych worków</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum tempora!</p>
+          <p>Dziękujemy</p>
         </div>
 
         <div class="stats--item">
           <em th:text="${qtyOfDonation}"></em>
           <h3>Przekazanych darów</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas quam.</p>
+          <p>Wspaniale!</p>
         </div>
 
       </div>
@@ -86,7 +88,7 @@
     <section id="about-us" class="about-us">
       <div class="about-us--text">
         <h2>O nas</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero optio esse quisquam illo omnis.</p>
+        <p>Jesteśmy po to, by pomagać!</p>
         <img th:src="@{/images/signature.svg}" class="about-us--text-signature" alt="Signature" />
       </div>
       <div class="about-us--image"><img th:src="@{/images/about-us.jpg}" alt="People in circle" /></div>

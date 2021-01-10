@@ -25,11 +25,14 @@ public interface SingleUserService {
 
         void deleteUsers(Long id);
 
-        String FindUsernameByEmail(String email);
+        String findUsernameByEmail(String email);
 
-        Long FindUserIdByEmail(String email);
+        Long findUserIdByEmail(String email);
+
 
         SingleUser getUsersById(Long id);
+
+        SingleUser getByEmail(String email);
 
 //        Users getUserByActivateToken(String activateToken);
 //
