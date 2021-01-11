@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.entity.SingleUser;
 import pl.coderslab.charity.service.SingleUserService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -26,19 +27,19 @@ public class UserController {
         model.addAttribute("users", users);
         return "userlist";
     }
-    @GetMapping("/edit/{id}")
+    @GetMapping("/edituser/{id}")
     public String edit(@PathVariable Long id, Model model) {
         SingleUser user = userService.findById(id);
         model.addAttribute("user", user);
-        return "edit";
+        return "edituser";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/edituser")
     public String addedit(SingleUser user) {
         userService.update(user);
+        user.setLast_update(LocalDateTime.now().toString());
         return "redirect:/userlist";
     }
-
 
 
     @GetMapping("/user/delete/{id}")
