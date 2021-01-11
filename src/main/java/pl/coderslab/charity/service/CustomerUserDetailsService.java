@@ -32,11 +32,16 @@ public class CustomerUserDetailsService implements UserDetailsService {
         if (!singleUserRepository.existsByEmail(email)) {
             throw new UsernameNotFoundException(String.format("Username %s not found", email));
         }
-        SingleUser users = singleUserRepository.getByEmail(email);
-        return new User(
-                users.getEmail()
-                , users.getPassword()
-                , Collections.singletonList(new SimpleGrantedAuthority(users.getUsersRoles().getRole())));
+        final SingleUser users = singleUserRepository.getByEmail(email);
+        UserDetails user = User.withUsername(users.getEmail()).password(users.getPassword()).authorities(users.getUsersRoles().getRole()).build();
+        return user;
+
+
+
+//        return new User(
+//                users.getEmail()
+//                , users.getPassword()
+//                , Collections.singletonList(new SimpleGrantedAuthority(users.getUsersRoles().getRole())));
 
 
 //        users.getUsername()

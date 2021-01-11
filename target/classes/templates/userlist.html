@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src ="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <title>User list</title>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+</head>
+<body>
+<header class="header--main-page">
+<nav class="container container--70">
+    <span th:include="fragments/log-or-not :: log-or-not"></span>
+    <span th:include="fragments/header :: header"></span>
+</nav>
+</header>
+<table  style="color: black; justify-content:center; text-align: left;width:100%;border: solid 2px">
+
+    <tr style="border: solid 1px">
+        <th class="tables">Id</th>
+        <th class="tables">Username</th>
+        <th class="tables">Email</th>
+        <th class="tables">Created</th>
+        <th class="tables">Updated</th>
+        <th class="tables">Active?</th>
+    </tr>
+    <tr style="border: solid 1px" th:each="user: ${users}">
+        <td class="tables" th:text="${user.id}"></td>
+        <td class="tables" th:text="${user.username}"></td>
+        <td class="tables" th:text="${user.email}"></td>
+        <td class="tables" th:text="${user.created}"></td>
+        <td class="tables" th:text="${user.last_update}"></td>
+        <td class="tables" th:text="${user.active}"></td>
+
+        <td><a class="button" th:href="@{/user/delete/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a>
+            <a class="button" th:href="@{/edit/{id}(id=${user.id})}"><button class="buttondelete" style="min-width: 50px">Edit</button></a></td>
+    </tr>
+</table>
+<div style="display:flex; justify-content: space-evenly">
+    <a class="button" th:href="@{/change}"><button class="button" style="min-width: 50px">Choose</button></a>
+    <a class="button" th:href="@{/}"><button class="button" style="min-width: 50px">Players</button> </a>
+    <a class="button" th:href="@{/}"><button class="button" style="min-width: 50px">Teams</button> </a>
+    <a class="button" th:href="@{/logout}"><button class="button" style="min-width: 50px; color: darkred">Logout</button> </a>
+</div>
+
+    <span th:include="fragments/footer :: footer"></span>
+</body>
+</html>

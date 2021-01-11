@@ -25,7 +25,7 @@ public class SingleUserFixtures {
             new SingleUser(null, "Maciek", "coderslab", TimeConverter.timeNowLong(), TimeConverter.timeNowLong(), null, "zere@zere.pl", true, "system", "Alonsos", null),
             new SingleUser(null, "Maciuś", "coderslab", TimeConverter.timeNowLong(), TimeConverter.timeNowLong(), null, "bajabongo@o2.pl", true, "system", "Bussosiliis", null),
             new SingleUser(null, "Mama", "coderslab", TimeConverter.timeNowLong(), TimeConverter.timeNowLong(), null, "olo@bolo.pl", true, "system", "zacharisz", null),
-            new SingleUser(null, "admin", "coderslab", TimeConverter.timeNowLong(), TimeConverter.timeNowLong(), null, "cos@o2.pl", true, "system", "", null)
+            new SingleUser(null, "admin", "coderslab", TimeConverter.timeNowLong(), TimeConverter.timeNowLong(), null, "admin@admin", true, "system", "", null)
     );
 
     public SingleUserFixtures(SingleUserService singleUserService, UsersRolesService usersRolesService) {

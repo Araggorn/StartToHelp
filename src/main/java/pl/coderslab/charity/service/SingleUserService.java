@@ -19,10 +19,6 @@ public interface SingleUserService {
 
         List<SingleUser> getUser(Long id);
 
-        void deactivateUsers(Long id);
-
-        void activateUsers(Long id);
-
         void deleteUsers(Long id);
 
         String findUsernameByEmail(String email);
@@ -33,6 +29,9 @@ public interface SingleUserService {
         SingleUser getUsersById(Long id);
 
         SingleUser getByEmail(String email);
+
+        void update(SingleUser user);
+
 
 //        Users getUserByActivateToken(String activateToken);
 //

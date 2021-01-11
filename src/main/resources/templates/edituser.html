@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src ="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <title>User list</title>
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+</head>
+<body>
+<header class="header--main-page">
+    <nav class="container container--70">
+        <span th:include="fragments/log-or-not :: log-or-not"></span>
+        <span th:include="fragments/header :: header"></span>
+    </nav>
+</header>
+
+
+
+
+<span th:include="fragments/footer :: footer"></span>
+</body>
+</html>

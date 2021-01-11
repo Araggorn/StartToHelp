@@ -52,11 +52,6 @@ public class SingleUserServiceImpl implements SingleUserService {
         return usersRepository.getUser(id);
     }
 
-    @Override
-    public void deactivateUsers(Long id) {
-
-    }
-
 
     @Override
     public List<SingleUser> getUsers() {
@@ -91,25 +86,21 @@ public class SingleUserServiceImpl implements SingleUserService {
         return usersRepository.getByEmail(email);
     }
 
-
-
-
-//    @Override
-//    public void deactivateUsers(Long id) {
-//        SingleUser user = usersRepository.getOne(id);
-//        user.setActive(false);
-//        user.setLast_update(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-//        user.setChangeBy(SecurityUtils.usernameForActivations());
-//        usersRepository.save(users);
-//    }
-
     @Override
-    public void activateUsers(Long id) {
-
+    public void update(SingleUser user) {
+        SingleUser user1 = usersRepository.getOne(user.getId());
+        user1.setUsername(user.getUsername());
+        user1.setPassword(passwordEncoder.encode(user.getUsername()));
+        user1.setEmail(user.getEmail());
+        usersRepository.save(user);
     }
+
 
     @Override
     public void deleteUsers(Long id) {
+        SingleUser user = usersRepository.getOne(id);
+        user.setActive(false);
+        usersRepository.save(user);
 
     }
 
@@ -132,24 +123,5 @@ public class SingleUserServiceImpl implements SingleUserService {
 //        usersRepository.save(user);
 //    }
 
-//    @Override
-//    public void deleteUsers(Long id) {
-//        Long userId = usersRepository.FindUserIdByEmail(SecurityUtils.usernameForActivations());
-//
-//        if(usersRepository.donationsQtyForSelectedUser(id) == 0) {
-//
-//            if (!usersRepository.readyToDelete(id) && !id.equals(userId)) {
-//                usersRepository.deleteById(id);
-//            }
-//
-//        }
-//        else{
-//            if (!usersRepository.readyToDelete(id) && !id.equals(userId)) {
-//                usersRepository.deleteDonationCategoriesForDeletingUser(id);
-//                usersRepository.deleteDonationsForDeletingUser(id);
-//                usersRepository.deleteById(id);
-//            }
-//        }
-//    }
 
 }
