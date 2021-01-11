@@ -10,18 +10,30 @@
 
 </head>
 <header>
-    <nav class="container container--70">
-        <span th:include="fragments/log-or-not :: log-or-not"></span>
-
-        <span th:include="fragments/header :: header"></span>
-        <span sec:authorize="hasRole('ROLE_ADMIN')">
-        <br/><br/><br/><br/>
-        <div th:text="#{app.logged.a3}" style="font-weight: bold;font-size: 20px">Panel Admina</div>
-        <span th:include="fragments/adminNavigation :: adminNavigation"></span>
-        </span>
-    </nav>
+    <header class="header--main-page">
+        <nav class="container container--70">
+            <span th:include="fragments/log-or-not :: log-or-not"></span>
+            <span th:include="fragments/header :: header"></span>
+        </nav>
+    </header>
 </header>
+<table  style="color: black; justify-content:center; text-align: left;width:100%;border: solid 2px">
 
+    <tr style="border: solid 1px">
+        <th class="tables">Id</th>
+        <th class="tables">Nazwa</th>
+        <th class="tables">Opis</th>
+    </tr>
+    <tr style="border: solid 1px" th:each="i: ${institutions}">
+        <td class="tables" th:text="${i.id}"></td>
+        <td class="tables" th:text="${i.name}"></td>
+        <td class="tables" th:text="${i.description}"></td>
+
+
+        <td><a class="button" th:href="@{/institution/delete/{id}(id=${i.id})}"><button class="buttondelete" style="min-width: 50px">Delete</button></a>
+            <a class="button" th:href="@{/institution/edit/{id}(id=${i.id})}"><button class="buttondelete" style="min-width: 50px">Edit</button></a></td>
+    </tr>
+</table>
 
 <footer>
     <span th:include="fragments/footer :: footer"></span>

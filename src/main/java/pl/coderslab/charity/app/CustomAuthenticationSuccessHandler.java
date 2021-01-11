@@ -23,8 +23,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         this.usersService = userService;
     }
 
-
-
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
 
@@ -36,5 +34,25 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         } else {
             httpServletResponse.sendRedirect("/profile");
         }
+
+//        if (!isAdminAuthority(authentication)) {
+//            String targetUrl = super.determineTargetUrl(request, response);
+//            if (StringUtils.(targetUrl) || StringUtils.equals(targetUrl, "/")) {
+//                targetUrl = "/profile";
+//            }
+//            clearAuthenticationAttributes(request);
+//            LOG.info("Redirecting customer to the following location {} ", targetUrl);
+//            redirectStrategy.sendRedirect(request, response, targetUrl);
+//        } else {
+//            redirectStrategy.sendRedirect(request, response, "/admin/profile");        }
+//
+//        clearAuthenticationAttributes(request);
+//    }
+//
+//    protected boolean isAdminAuthority(final Authentication authentication)
+//    {
+//        return CollectionUtils.isNotEmpty(authentication.getAuthorities())
+//                && authentication.getAuthorities().contains(adminAuthority);
+//    }
     }
 }

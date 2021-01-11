@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.coderslab.charity.converter.TimeConverter;
 import pl.coderslab.charity.entity.SingleUser;
 import pl.coderslab.charity.service.SingleUserService;
 
@@ -37,7 +38,7 @@ public class UserController {
     @PostMapping("/edituser")
     public String addedit(SingleUser user) {
         userService.update(user);
-        user.setLast_update(LocalDateTime.now().toString());
+        user.setLast_update(TimeConverter.timeNowLong());
         return "redirect:/userlist";
     }
 
