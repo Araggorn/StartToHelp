@@ -35,12 +35,8 @@ public class SingleUserFixtures {
 
     public void loadIntoDB() {
 
-
-        for (SingleUser users : usersList) {
-
-            singleUserService.add(users);
-        }
         List<UsersRoles> usersRolesList = usersRolesService.getUsersRoles();
+
         SingleUser user1 = usersList.get(0);
         SingleUser user2 = usersList.get(1);
         SingleUser user3 = usersList.get(2);
@@ -50,7 +46,6 @@ public class SingleUserFixtures {
         SingleUser user7 = usersList.get(6);
         SingleUser user8 = usersList.get(7);
 
-//
         user1.setUsersRoles(usersRolesList.get(0));
         user2.setUsersRoles(usersRolesList.get(0));
         user3.setUsersRoles(usersRolesList.get(0));
@@ -60,6 +55,10 @@ public class SingleUserFixtures {
         user7.setUsersRoles(usersRolesList.get(0));
         user8.setUsersRoles(usersRolesList.get(1));
 
-//
+        for (SingleUser users : usersList) {
+
+            singleUserService.add(users);
+        }
+
     }
 }
