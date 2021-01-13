@@ -16,8 +16,4 @@ public interface UsersRolesService {
 
     void delete(Long id);
 
-    void activate(Long id);
-
-    List<Long> getUsersRolesId();
-
 }

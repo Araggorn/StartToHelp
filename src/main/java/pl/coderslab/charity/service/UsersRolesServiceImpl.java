@@ -34,10 +34,6 @@ public class UsersRolesServiceImpl implements UsersRolesService {
         return null;
     }
 
-//    @Override
-//    public List<UsersRoles> getDeactivatedUsersRoles() {
-//        return usersRolesRepository.getDeactivatedUsersRoles();
-//    }
 
     @Override
     public UsersRoles findById(Long id) {
@@ -47,33 +43,5 @@ public class UsersRolesServiceImpl implements UsersRolesService {
     @Override
     public void delete(Long id) {
 
-    }
-
-    @Override
-    public void activate(Long id) {
-
-    }
-
-//    @Override
-//    public void delete(Long id) {
-//        UsersRoles usersRoles = usersRolesRepository.getOne(id);
-//        usersRoles.setActive(false);
-//        usersRoles.setLast_update(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-//        usersRoles.setChangeBy(SecurityUtils.usernameForActivations());
-//        usersRolesRepository.save(usersRoles);
-//    }
-//
-//    @Override
-//    public void activate(Long id) {
-//        UsersRoles usersRoles = usersRolesRepository.getOne(id);
-//        usersRoles.setActive(true);
-//        usersRoles.setLast_update(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-//        usersRoles.setChangeBy(SecurityUtils.usernameForActivations());
-//        usersRolesRepository.save(usersRoles);
-
-
-    @Override
-    public List<Long> getUsersRolesId() {
-        return usersRolesRepository.getUsersRolesId();
     }
 }

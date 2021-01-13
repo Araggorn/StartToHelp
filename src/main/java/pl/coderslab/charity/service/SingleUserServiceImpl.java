@@ -21,24 +21,8 @@ public class SingleUserServiceImpl implements SingleUserService {
     }
 
     @Override
-    public void registry(SingleUser user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-      //  user.setActivateToken(SecurityUtils.uuidToken());
-        user.setActive(false);
-        usersRepository.save(user);
-    }
-
-    @Override
     public void add(SingleUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-       // users.setActivateToken(SecurityUtils.uuidToken());
-        user.setActive(true);
-        usersRepository.save(user);
-    }
-
-    @Override
-    public void addWithoutCodePass(SingleUser user) {
-      //  user.setActivateToken(SecurityUtils.uuidToken());
         user.setActive(true);
         usersRepository.save(user);
     }
@@ -61,22 +45,6 @@ public class SingleUserServiceImpl implements SingleUserService {
         return usersRepository.getOne(id);
     }
 
-
-
-    @Override
-    public String findUsernameByEmail(String email) {
-        return usersRepository.FindUsernameByEmail(email);
-    }
-
-    @Override
-    public Long findUserIdByEmail(String email) {
-        return usersRepository.FindUserIdByEmail(email);
-    }
-
-    @Override
-    public SingleUser getUsersById(Long id) {
-        return usersRepository.getSingleUserById(id);
-    }
 
     @Override
     public SingleUser getByEmail(String email) {
