@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.SingleUser;
-import pl.coderslab.charity.repository.SingleUserRepository;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import pl.coderslab.charity.repository.SingleUserRepository;;
 import java.util.List;
 
 
