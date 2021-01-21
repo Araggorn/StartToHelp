@@ -1,5 +1,6 @@
 package pl.coderslab.charity.repository;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -26,13 +27,14 @@ class DonationRepositoryTest {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    List<Category> categories = categoryRepository.findAll();
+
 
 
     @Test
     @DisplayName("Get Donation with Categories test")
     public void test1() {
 //given
+        List<Category> categories = categoryRepository.findAll();
         Donation first = new Donation();
         Donation second = new Donation();
         first.getCategories().add(categories.get(1));
@@ -45,6 +47,6 @@ class DonationRepositoryTest {
         List<Donation> results =
                 donationRepository.getDonationsWithCategories();
 //then
-//                assert;
+                Assertions.assertThat(results).
     }
 }
