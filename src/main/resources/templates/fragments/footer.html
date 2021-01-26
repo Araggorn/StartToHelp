@@ -11,16 +11,17 @@
     <div id="contact" class="contact">
         <h2>Skontaktuj się z nami</h2>
         <h3>Formularz kontaktowy</h3>
-        <form class="form--contact">
+        <form class="form--contact" th:object="${contact}" method="post" th:action="@{/}">
             <div class="form-group form-group--50">
-                <input type="text" name="name" placeholder="Imię" />
+                <input  type="text" th:field="*{firstname}" name="name" placeholder="Imię" />
             </div>
             <div class="form-group form-group--50">
-                <input type="text" name="surname" placeholder="Nazwisko" />
+                <input type="text" th:field="*{lastname}" name="surname" placeholder="Nazwisko" />
             </div>
 
             <div class="form-group">
             <textarea
+                    th:field="*{message}"
                     name="message"
                     placeholder="Wiadomość"
                     rows="1"
