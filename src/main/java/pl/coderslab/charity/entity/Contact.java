@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @ToString
 public class Contact {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
