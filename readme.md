@@ -1,12 +1,6 @@
 <img alt="Logo" src="http://coderslab.pl/svg/logo-coderslab.svg" width="400">
 
-
-Przed przystąpieniem do pracy  przeczytaj poniższe wskazówki.
-## Jak zacząć?
-
-1. Zaimportuj projekt jako projekt `Maven`, wg poniższych wskazówek:
-
-	* W `IntelliJ` wybieramy: `File –> New –> Project from Existing Sources...`
-	* Wskazujemy lokalizację katalogu ze sklonowanym projektem i zatwierdzamy.
-	* Następnie w nowym oknie wybieramy: `Import project from external model` i wskazujemy `Maven`
-	* Wybieramy kolejno opcje: `Next –> Next –> Next –> Finish`
+The app is a place where people can donate unused things to trusted institutions. 
+User can send  a request to donate stuff, edit his profile and manage donations.
+Used technologies: Java 14, JDBC, SQL, Thymeleaf, 
+Spring Boot, SpringSecurity, JavaScript, CSS, HTML.
